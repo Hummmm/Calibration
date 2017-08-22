@@ -47,6 +47,13 @@ The calibration will produce the following output files:
 An example using a sample dataset
 
 Download the dataset from the  [Downloads](https://github.com/ethz-asl/kalibr/wiki/downloads) page and extract **dynamic.rar**. The archive will contain the bag, calibration target and IMU configuration file.
+Otherwise, you can create rosbag using your raw data, a combination of moving camera and static calibration target is preferred. Make sure current filefolder containing ./cam0 and ./cam1 with left and right images inside respectively and the image name is the same as timestamps in rostime format. And a imu0.csv file includes inertial sensor data as follows:
+
+>timestamp, gyro.x,gyro.y, gyro.z,acc.x,acc.y,acc.z
+
+Run command line below to create rosbag file.
+
+>%RELATIVE PATH%/kalibr_bagcreater --folder cam0 --folder cam1 --output-bag ./dynamic.bag
 
 The calibration can be started with:
 

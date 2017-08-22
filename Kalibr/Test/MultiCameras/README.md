@@ -39,7 +39,7 @@ The calibration will produce the following output files:
 ## Test
 ### Using dynamic Dataset
 If it's only for camera calibration, a combination of static camera and moving calibration target is preferred. Make sure current filefolder containing ./cam0 and ./cam1 with left and right images inside respectively. Run command line below to create rosbag file.
->%RELATIVE PATH%/kalibr_bagcreater --folder cam0 --folder  cam1 --output-bag ./calib.bag\
+>%RELATIVE PATH%/kalibr_bagcreater --folder cam0 --folder  cam1 --output-bag ./static.bag
 
  Choose your camera model correctly(pinhole projection / equidistant distortion/ omni projection / radial-tangential distortion are supported). Then the calibration can be started with:
 
