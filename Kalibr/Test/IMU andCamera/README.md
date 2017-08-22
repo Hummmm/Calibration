@@ -21,7 +21,7 @@ The tool must be provided with the following input:
 1,ROS bag containing the image and IMU data
 >--cam camchain.yaml
 
-2. intrinsic and extrinsic calibration parameters of the camera system. The output of the multiple-camera-calibration tool can be used here. (see YAML formats)
+2. intrinsic and extrinsic calibration parameters of the camera system. The output of the multiple-camera-calibration tool can be used here. (see YAML formats) Make sure the frequency of imu is at least 100HZ~
     
 >--imu imu.yaml
 
@@ -54,6 +54,15 @@ The calibration can be started with:
 
 NOTE1: Because there are shocks in the dataset (sensor pick-up/lay-down), only the data between 5 to 45 s is used.
 NOTE2: If **dynamic.rar** is extracted in other folder, add datasets'path before each extracted data.
+
+NOTE3: If you want more detail information of projected error, add following python sparse option:
+
+>--verbose
+
+NOTE4: If you only want to choose part of video, for example, 5 seconds to 45 seconds, type below option
+
+>--bag-from-to 5 45
+ 
 
 
  
