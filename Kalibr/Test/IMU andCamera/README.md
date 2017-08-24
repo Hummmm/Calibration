@@ -55,7 +55,7 @@ Run command line below to create rosbag file.
 
 >%RELATIVE PATH%/kalibr_bagcreater --folder cam0 --folder cam1 --output-bag ./dynamic.bag
 
-The calibration can be started with:
+The calibration can be started with(the argument list can be found in  [kalibr_calibrate_imu_camera](https://github.com/ethz-asl/kalibr/blob/master/aslam_offline_calibration/kalibr/python/kalibr_calibrate_imu_camera)):
 
 >kalibr_calibrate_imu_camera --target april_6x6.yaml --cam camchain.yaml --imu imu_adis16448.yaml --bag dynamic.bag --bag-from-to 5 45
 
@@ -70,6 +70,15 @@ NOTE4: If you only want to choose part of video, for example, 5 seconds to 45 se
 
 >--bag-from-to 5 45
  
+NOTE5: The argument about time-calibration for calibrate_imu_camera is discussed here.
+
+>--time-calibration
+
+Use cross correlating between the "predicted" angular rates(camera) and measured angular rates(imu) to calculate the time delay.Cross-correlation is a measure of similarity of two series as a function of the displacement of one relative to the other.  [Math model]( http://mathworld.wolfram.com/Cross-Correlation.html) show that the results in a cross correlation series has a length of the sum of the original series .
+
+For example,The cross correlation series with a maximum delay of 4000 is computed by pair of 2000 original data series. There is a strong correlation at a delay of about 2020, which imply the shift between these two data is 20.
 
 
- 
+
+
+
